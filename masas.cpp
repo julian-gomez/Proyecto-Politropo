@@ -23,7 +23,7 @@ double beta = 1.0;
 //Politropo Tangencial
 
 //Definimos hasta donde correremos el indice n
-double longitud = 15.0;
+double longitud = 30.0;
 double delta = 0.1;
 int numPuntos = int(longitud/delta);
 double alpha = 1.0;

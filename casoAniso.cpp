@@ -16,11 +16,11 @@ double der_0 = 0.0;
 //Constantes
 
 //Politropo Radial
-double m = 1.0;
-double beta = 1.0;
+double m = 10.0;
+double beta = 0.8;
 
 //Politropo Tangencial
-double n = 1.0;
+double n = 10.0;
 double alpha = 1.0;
 
 //Densidad central
@@ -57,11 +57,11 @@ int main ()
 		z = z + h;
 		w = w + h*promedio1;
 		w_prime = w_prime + h*promedio2;
-		if (w >= 0.0000000001)
+		if (w >= 0.5)
 		{
 			archivo_salida << z << " " << w << " " << w_prime << endl;
 		}	
-		else if (w < 0.0000000001)
+		else if (w < 0.5)
 		{
 			req = 1;
 		} 
