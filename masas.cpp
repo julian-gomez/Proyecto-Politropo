@@ -23,8 +23,8 @@ double beta = 1.0;
 //Politropo Tangencial
 
 //Definimos hasta donde correremos el indice n
-double longitud = 15.0;
-double delta = 0.1;
+double longitud = 30.0;
+double delta = 0.01;
 int numPuntos = int(longitud/delta);
 double alpha = 1.0;
 
@@ -80,17 +80,17 @@ int main ()
 		w_prime = der_0;
 		while (req1 == 0)
 		{
-			k1_1 = func1(z,w,w_prime,m,(i+1)*n, beta, alpha);
-			k1_2 = func2(z,w,w_prime,m,(i+1)*n, beta, alpha);
+			k1_1 = func1(z,w,w_prime,m,(i+1)*delta + n, beta, alpha);
+			k1_2 = func2(z,w,w_prime,m,(i+1)*delta + n, beta, alpha);
 	
-			k2_1 = func1(z + h/2.0, w + h/2.0*k1_1, w_prime + h/2.0*k1_2,m,(i+1)*n, beta, alpha);
-			k2_2 = func2(z + h/2.0, w + h/2.0*k1_1, w_prime + h/2.0*k1_2,m,(i+1)*n, beta, alpha);
+			k2_1 = func1(z + h/2.0, w + h/2.0*k1_1, w_prime + h/2.0*k1_2,m,(i+1)*delta + n, beta, alpha);
+			k2_2 = func2(z + h/2.0, w + h/2.0*k1_1, w_prime + h/2.0*k1_2,m,(i+1)*delta + n, beta, alpha);
 
-			k3_1 = func1(z + h/2.0, w + h/2.0*k2_1, w_prime + h/2.0*k2_2,m,(i+1)*n, beta, alpha);
-			k3_2 = func2(z + h/2.0, w + h/2.0*k2_1, w_prime + h/2.0*k2_2,m,(i+1)*n, beta, alpha);
+			k3_1 = func1(z + h/2.0, w + h/2.0*k2_1, w_prime + h/2.0*k2_2,m,(i+1)*delta + n, beta, alpha);
+			k3_2 = func2(z + h/2.0, w + h/2.0*k2_1, w_prime + h/2.0*k2_2,m,(i+1)*delta + n, beta, alpha);
 
-			k4_1 = func1(z + h, w + h*k3_1, w_prime + h*k3_2,m,(i+1)*n, beta, alpha);
-			k4_2 = func2(z + h, w + h*k3_1, w_prime + h*k3_2,m,(i+1)*n, beta, alpha);
+			k4_1 = func1(z + h, w + h*k3_1, w_prime + h*k3_2,m,(i+1)*delta + n, beta, alpha);
+			k4_2 = func2(z + h, w + h*k3_1, w_prime + h*k3_2,m,(i+1)*delta + n, beta, alpha);
 
 			promedio1 = (k1_1 + 2.0*k2_1 + 2.0*k3_1 + k4_1)/6.0;
 			promedio2 = (k1_2 + 2.0*k2_2 + 2.0*k3_2 + k4_2)/6.0;
@@ -106,8 +106,8 @@ int main ()
 		}
 		cout << z << " " << z2 << endl;
 		
-		indice = (pow(z,2.0)*(w_prime + 2.0/(resta*z)*(alpha*pow(p_c,1.0/((i+1)*n))*pow(w,m/((i+1)*n)) - beta*pow(p_c,1.0/m)*w)))/(pow(z2,2.0)*w_prime2);
-		archivo_salida << (i+1)*n << " " << indice << endl;
+		indice = pow(z,2.0)*(w_prime)/(pow(z2,2.0)*w_prime2);
+		archivo_salida << (i+1)*delta + n << " " << indice << endl;
 		req1 = 0.0;
 		req2 = 0.0;
 	}
