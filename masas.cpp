@@ -68,7 +68,7 @@ int main ()
 			w_2 = w_2 + h*promedio1;
 			w_prime2 = w_prime2 + h*promedio2;
 		
-			if (w_2 < 0.0001)
+			if (w_2 < 0.000001)
 			{
 				req2 = 1;
 			} 
@@ -99,14 +99,14 @@ int main ()
 			w = w + h*promedio1;
 			w_prime = w_prime + h*promedio2;
 		
-			if (w < 0.0001)
+			if (w < 0.000001)
 			{
 				req1 = 1;
 			} 
 		}
-		
 		cout << z << " " << z2 << endl;
-		indice = (pow(z,2.0)*(w_prime + 2.0/(resta*z)*(alpha*pow(p_c,1.0/((i+1)*n))*pow(w,m/n) - beta*pow(p_c,1.0/m)*w)))/(pow(z2,2.0)*w_prime2);
+		
+		indice = (pow(z,2.0)*(w_prime + 2.0/(resta*z)*(alpha*pow(p_c,1.0/((i+1)*n))*pow(w,m/((i+1)*n)) - beta*pow(p_c,1.0/m)*w)))/(pow(z2,2.0)*w_prime2);
 		archivo_salida << (i+1)*n << " " << indice << endl;
 		req1 = 0.0;
 		req2 = 0.0;
