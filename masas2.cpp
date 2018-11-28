@@ -127,6 +127,6 @@ double func1(double z, double w1, double w2, double m, double n, double cr, doub
 double func2(double z, double w1, double w2, double m, double n, double cr, double ct)
 {
 	double diferencia = -1.0*cr*(m+1.0)*pow(p_c,1.0/m); //Phi_c - F_c
-	return -1.0*pow(w1,m)-2.0*w2/z + 2.0/diferencia*pow(z,-2.0)*(ct*pow(p_c,1.0/n)*pow(w1,m/n) - cr*w1*pow(p_c,1.0/m)) + 2.0/diferencia*pow(z,-2.0)*(z*m*w2*(ct/n*pow(p_c,1.0/n)*pow(w1,m/n - 1.0) - cr/m*pow(p_c,1.0/m)));
+	return -1.0*pow(w1,m)-2.0*w2/z - 2.0/diferencia*pow(z,-2.0)*(ct*pow(p_c,1.0/n)*pow(w1,m/n) - cr*w1*pow(p_c,1.0/m)) - 2.0/diferencia*pow(z,-2.0)*(z*m*w2*(ct/n*pow(p_c,1.0/n)*pow(w1,m/n - 1.0) - cr/m*pow(p_c,1.0/m)));
 }
 

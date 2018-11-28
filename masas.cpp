@@ -23,8 +23,8 @@ double beta = 1.0;
 //Politropo Tangencial
 
 //Definimos hasta donde correremos el indice n
-double longitud = 30.0;
-double delta = 0.01;
+double longitud = 15.0;
+double delta = 0.1;
 int numPuntos = int(longitud/delta);
 double alpha = 1.0;
 
@@ -34,7 +34,7 @@ int main ()
 {
 	//Sistema 2 hace referencia al sistema donde alpha = beta y n = m
 	int i,j,k;
-	double n = 0.1; //n inicial
+	double n = 1.0; //n inicial
 	double indice; //Relacion de masa anisotropica sobre masa isotropica
 	double resta = -1.0*beta*(m+1.0)*pow(p_c,1.0/m); //Phi_c - F_c
 	int req1 = 0;
@@ -68,7 +68,7 @@ int main ()
 			w_2 = w_2 + h*promedio1;
 			w_prime2 = w_prime2 + h*promedio2;
 		
-			if (w_2 < 0.000001)
+			if (w_2 < 0.0001)
 			{
 				req2 = 1;
 			} 
@@ -99,7 +99,7 @@ int main ()
 			w = w + h*promedio1;
 			w_prime = w_prime + h*promedio2;
 		
-			if (w < 0.000001)
+			if (w < 0.0001)
 			{
 				req1 = 1;
 			} 
@@ -122,6 +122,6 @@ double func1(double z, double w1, double w2, double m, double n, double cr, doub
 double func2(double z, double w1, double w2, double m, double n, double cr, double ct)
 {
 	double diferencia = -1.0*cr*(m+1.0)*pow(p_c,1.0/m); //Phi_c - F_c
-	return -1.0*pow(w1,m)-2.0*w2/z + 2.0/diferencia*pow(z,-2.0)*(ct*pow(p_c,1.0/n)*pow(w1,m/n) - cr*w1*pow(p_c,1.0/m)) + 2.0/diferencia*pow(z,-2.0)*(z*m*w2*(ct/n*pow(p_c,1.0/n)*pow(w1,m/n - 1.0) - cr/m*pow(p_c,1.0/m)));
+	return -1.0*pow(w1,m)-2.0*w2/z - 2.0/diferencia*pow(z,-2.0)*(ct*pow(p_c,1.0/n)*pow(w1,m/n) - cr*w1*pow(p_c,1.0/m)) - 2.0/diferencia*pow(z,-2.0)*(z*m*w2*(ct/n*pow(p_c,1.0/n)*pow(w1,m/n - 1.0) - cr/m*pow(p_c,1.0/m)));
 }
 

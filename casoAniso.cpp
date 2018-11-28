@@ -16,15 +16,15 @@ double der_0 = 0.0;
 //Constantes
 
 //Politropo Radial
-double m = 3.0;
-double beta = 2.0;
+double m = 1.0;
+double beta = 1.0;
 
 //Politropo Tangencial
-double n = 2.0;
-double alpha = 5.0;
+double n = 1.0;
+double alpha = 1.0;
 
 //Densidad central
-double p_c = 10.0;
+double p_c = 1.0;
 double diferencia = -1.0*beta*(m+1.0)*pow(p_c,1.0/m); //Phi_c - F_c
 int main ()
 {
@@ -76,7 +76,7 @@ double func1(double z, double w1, double w2)
 
 double func2(double z, double w1, double w2)
 {
-	return -1.0*pow(w1,m)-2.0*w2/z + 2.0/diferencia*pow(z,-2.0)*(alpha*pow(p_c,1.0/n)*pow(w1,m/n) - beta*w1*pow(p_c,1.0/m)) + 2.0/diferencia*pow(z,-2.0)*(z*m*w2*(alpha/n*pow(p_c,1.0/n)*pow(w1,m/n - 1.0) - beta/m*pow(p_c,1.0/m)));
+	return -1.0*pow(w1,m)-2.0*w2/z - 2.0/diferencia*pow(z,-2.0)*(alpha*pow(p_c,1.0/n)*pow(w1,m/n) - beta*w1*pow(p_c,1.0/m)) - 2.0/diferencia*pow(z,-2.0)*(z*m*w2*(alpha/n*pow(p_c,1.0/n)*pow(w1,m/n - 1.0) - beta/m*pow(p_c,1.0/m)));
 }
 
 
